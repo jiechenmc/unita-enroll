@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'action', choices: ['apply', 'destroy'], description: 'What action should Terraform take?')
+        string(name: 'clinc', defaultValue: '', description: "What is the name of the clinc enrolling?")
     }
 
     environment {
@@ -21,7 +22,7 @@ pipeline {
                 script {
                     sh 'terraform init'
                     sh 'terraform validate'
-                    sh "terraform ${params.action} -auto-approve"
+                    sh 'terraform ${params.action} -auto-approve -var="clinc_name=clincabc"'
                     if (params.action == 'apply') {
                     sleep(time:10,unit:"SECONDS")
                     }
