@@ -20,9 +20,10 @@ pipeline {
         stage('Terraform') {
             steps {
                 script {
-                    sh 'terraform init'
-                    sh 'terraform validate'
-                    sh "terraform ${params.action} -auto-approve -var=\"clinc_name=${params.clinc}\""
+                        sh 'terraform init'
+                        sh 'terraform validate'
+                        sh "terraform ${params.action} -auto-approve -var=\"clinc_name=${params.clinc}\""
+                    }
                 }
         }
     }
