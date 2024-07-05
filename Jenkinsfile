@@ -19,15 +19,13 @@ pipeline {
         stage('Terraform') {
             steps {
                 script {
-                        dir('terraform') {
-                            sh 'terraform init'
-                            sh 'terraform validate'
-                            sh "terraform ${params.action} -auto-approve"
-                            if (params.action == 'apply') {
-                            sleep(time:10,unit:"SECONDS")
-                            }
-                            }
-                        }
+                    sh 'terraform init'
+                    sh 'terraform validate'
+                    sh "terraform ${params.action} -auto-approve"
+                    if (params.action == 'apply') {
+                    sleep(time:10,unit:"SECONDS")
+                    }
+                    }
                 }
         }
     }

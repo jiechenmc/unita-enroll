@@ -11,6 +11,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
+
 // DynamoDB Table
 // Cognito User Pool
 // EventBridge Group
