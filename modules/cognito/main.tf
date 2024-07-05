@@ -13,6 +13,7 @@ resource "aws_cognito_user_pool" "clinc_pool" {
     }
   }
 
+
   tags = {
     clinc = var.clinc_name
   }
@@ -27,6 +28,11 @@ resource "aws_cognito_user_pool_client" "clinc_pool_client" {
   allowed_oauth_scopes                 = ["email", "openid", "phone"]
   supported_identity_providers         = ["COGNITO"]
   generate_secret                      = true
+}
+
+resource "aws_cognito_user_pool_domain" "clinc_domain" {
+  domain       = "unita-${var.clinc_name}"
+  user_pool_id = aws_cognito_user_pool.clinc_pool.id
 }
 
 
