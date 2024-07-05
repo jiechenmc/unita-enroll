@@ -26,11 +26,11 @@ module "dynamodb" {
 }
 
 // Entire module needs to be repurposed; not needed rn
-module "cognito" {
-  source       = "./modules/cognito"
-  clinc_name   = var.clinc_name
-  callback_url = var.callback_url
-}
+# module "cognito" {
+#   source       = "./modules/cognito"
+#   clinc_name   = var.clinc_name
+#   callback_url = var.callback_url
+# }
 
 module "eventbridge" {
   source     = "./modules/eventbridge"
