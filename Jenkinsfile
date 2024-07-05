@@ -22,7 +22,7 @@ pipeline {
                 script {
                     sh 'terraform init'
                     sh 'terraform validate'
-                    sh 'terraform ${params.action} -auto-approve -var="clinc_name=clincabc"'
+                    sh "terraform ${params.action} -auto-approve -var=\"clinc_name=${params.clinc}\""
                     if (params.action == 'apply') {
                     sleep(time:10,unit:"SECONDS")
                     }
