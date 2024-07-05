@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         choice(name: 'action', choices: ['apply', 'destroy'], description: 'What action should Terraform take?')
-        string(name: 'clinc', defaultValue: '', description: "What is the name of the clinc enrolling?")
+        string(name: 'clinc', defaultValue: 'TEST', description: "What is the name of the clinc enrolling?")
     }
 
     environment {
