@@ -25,6 +25,7 @@ module "dynamodb" {
   clinc_name = var.clinc_name
 }
 
+// Entire module needs to be repurposed; not needed rn
 module "cognito" {
   source       = "./modules/cognito"
   clinc_name   = var.clinc_name
